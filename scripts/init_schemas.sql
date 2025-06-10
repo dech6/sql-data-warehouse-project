@@ -1,26 +1,60 @@
 /*
-=========================================
-
-Create the schemas
-
-=========================================
+=============================================================
+Create Database and Schemas
+=============================================================
 Script Purpose:
-    This script stets up three schemas within the database: 'bronze' , 
-    'silver', and 'gold'.
-    
+    This script creates a new database named 'DataWarehouse' after checking if it already exists. 
+    If the database exists, it is dropped and recreated. Additionally, the script sets up three schemas 
+    within the database: 'bronze', 'silver', and 'gold'.
+	
+WARNING:
+    Running this script will drop the entire 'DataWarehouse' database if it exists. 
+    All data in the database will be permanently deleted. Proceed with caution 
+    and ensure you have proper backups before running this script.
 */
 
 
--- Change from CDB to PDB 
-ALTER SESSION SET CONTAINER = XEPDB1;
 
 
--- Create the schemas
-CREATE USER bronze IDENTIFIED BY your_password;
-GRANT CONNECT, RESOURCE TO bronze;
 
-CREATE USER silver IDENTIFIED BY your_password;
-GRANT CONNECT, RESOURCE TO silver;
+USE master;
+GO
 
-CREATE USER gold IDENTIFIED BY your_password;
-GRANT CONNECT, RESOURCE TO gold;
+
+-- Drop and recreate the 'DataWarehouse' database
+
+IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'Data_Warehouse')
+BEGIN
+	ALTER DATABASE Data_Warehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+	DROP DATABASE Data_Warehouse;
+END;
+GO
+
+
+
+
+
+-- Create Database
+CREATE DATABASE Data_Warehouse;
+GO
+
+
+USE Data_Warehouse;
+GO
+
+
+-- Create Schemas
+
+CREATE SCHEMA  bronze;
+GO
+
+
+
+CREATE SCHEMA  silver;
+GO
+
+
+
+CREATE SCHEMA  gold;
+GO
+
