@@ -5,4 +5,5 @@ This project demonstrates a comprehensive data warehousing and analytics solutio
 
 ---
 
-<img width="1138" height="637" alt="image" src="https://github.com/user-attachments/assets/ba876c40-d3d5-4e38-ac35-53aac203266c" />
+
+<img width="1125" height="632" alt="image" src="https://github.com/user-attachments/assets/d767461c-0397-441d-93ca-cdf35910e8e3" />
