@@ -20,7 +20,7 @@ The data architecture for this project follows Medallion Architecture Bronze, Si
 
 ---
 
-## 📖 Project Overview
+## Project Overview
 
 This project involves:
 
